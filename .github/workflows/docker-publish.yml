@@ -44,5 +44,5 @@ jobs:
         with:
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
-      - run: docker build ./docker/ -t ldebeir/tp_devops 
-      - run: docker push ldebeir/tp_devops
+      - run: docker build ./docker/ -t ldebeir/tp-docker 
+      - run: docker push ldebeir/tp-docker

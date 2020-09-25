@@ -1,0 +1,29 @@
+version: "3" 
+services:
+# Create a service named db.
+  db:
+  # Use the Docker Image postgres. This will pull the newest release.
+    image: "postgres"
+    # Give the container the name container_postgres.
+    container_name: "container_postgres"
+    # Setup the username, password, and database name.
+    environment:
+      - POSTGRES_USER=tp_devops
+      - POSTGRES_PASSWORD=tp_devops 
+      - POSTGRES_DB=tp_devops
+    # Maps port 5432 (localhost) to port 5432 on the container.
+    ports:
+      - "5432:5432"
+
+  #app    
+  app:
+    links: 
+      - db
+    image: "tp_docker"
+    ports:
+      - "8080:8080"
+    environment:
+      - dbUrl=db:5432/tp_devops
+      - dbUsername=tp_devops
+      - dbPassword=tp_devops
+  

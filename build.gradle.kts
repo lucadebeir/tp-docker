@@ -72,3 +72,7 @@ tasks.withType<Test> {
 tasks.withType<Wrapper> {
     gradleVersion = "5.6"
 }
+
+tasks.withType<Exec> {
+    commandLine("./docker/dockerBuild.sh")
+}

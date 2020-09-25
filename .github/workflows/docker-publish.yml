@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./gradlew assemble
-      - run: ./gradlew check -Ddatabase.url=postgres:5432/tp_devops
+      - run: ./gradlew check -Pdatabase.url=postgres:5432/tp_devops
 
   Docker:
     runs-on: ubuntu-latest
